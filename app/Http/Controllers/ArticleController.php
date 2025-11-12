@@ -9,9 +9,10 @@ class ArticleController extends Controller
     function index()
     {
         // Load data
+        $articles = \App\Models\Article::all();
 
         // Return view with data
-        return view('articles.index');
+        return view('articles.index', compact('articles'));
 
     }
 
