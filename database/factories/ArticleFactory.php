@@ -20,6 +20,7 @@ class ArticleFactory extends Factory
             'title' => fake()->sentence(8),
             'content' => fake()->paragraph(5),
             'author_id' => fake()->numberBetween(1,5),
+            'is_published' => fake()->boolean(80),
         ];
     }
 }
