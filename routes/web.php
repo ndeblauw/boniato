@@ -7,6 +7,9 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{id}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
+Route::get('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
