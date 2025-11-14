@@ -2,10 +2,10 @@
     <ul>
         @foreach($categories as $category)
             <li class="flex gap-x-4">
-                <a href="/categories/{{$category->id}}">{{ $category->name }}</a>
-                <a href="/categories/{{$category->id}}/edit">EDIT</a>
+                <a href="/admin/categories/{{$category->id}}">{{ $category->name }}</a>
+                <a href="/admin/categories/{{$category->id}}/edit">EDIT</a>
 
-                <form action="/categories/{{$category->id}}" method="POST">
+                <form action="admin/categories/{{$category->id}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button>DELETE</button>

@@ -1,6 +1,6 @@
 <x-site-layout title="Create a new category">
 
-    <form action="/categories" method="post">
+    <form action="/admin/categories" method="post">
         @csrf
 
         <label>Category:</label>

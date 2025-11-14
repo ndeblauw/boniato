@@ -1,6 +1,6 @@
 <x-site-layout title="Edit {{$category->title}}">
 
-    <form action="/categories/{{$category->id}}" method="POST">
+    <form action="/admin/categories/{{$category->id}}" method="POST">
         @csrf
         @method('PUT')
 
