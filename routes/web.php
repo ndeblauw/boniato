@@ -12,6 +12,7 @@ Route::resource('categories', \App\Http\Controllers\CategoryController::class)->
 
 
 Route::resource('admin/categories', \App\Http\Controllers\AdminCategoryController::class);
+Route::resource('admin/articles', \App\Http\Controllers\AdminArticleController::class);
 
 
 Route::get('/dashboard', function () {
