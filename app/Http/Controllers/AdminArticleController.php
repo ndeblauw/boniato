@@ -12,7 +12,7 @@ class AdminArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('author_id', auth()->id() )->get();
 
         return view('admin.articles.index', compact('articles'));
     }
@@ -57,6 +57,10 @@ class AdminArticleController extends Controller
     {
         $article = Article::find($id);
 
+        if(!$article->canBeManagedBy(auth()->user())) {
+            abort(403);
+        }
+
         return view('admin.articles.edit', compact('article'));
     }
 
@@ -66,6 +70,10 @@ class AdminArticleController extends Controller
     public function update(Request $request, string $id)
     {
         $article = Article::find($id);
+
+        if(!$article->canBeManagedBy(auth()->user())) {
+            abort(403);
+        }
 
         $validated = $request->validate([
             'title' => ['required', 'string', 'min:10', 'max:40'],
@@ -82,6 +90,10 @@ class AdminArticleController extends Controller
     public function destroy(string $id)
     {
         $article = Article::find($id);
+
+        if(!$article->canBeManagedBy(auth()->user())) {
+            abort(403);
+        }
 
         $article->delete();
 

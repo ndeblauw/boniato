@@ -5,5 +5,7 @@
         </h2>
     </x-slot>
 
-                    {{ __("You're logged in!") }}
+
+    {{ __("You're logged in!") }}
+                <a href="/admin/articles">go to your articles</a>
 </x-app-layout>

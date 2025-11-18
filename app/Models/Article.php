@@ -27,4 +27,19 @@ class Article extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    // Model methods ------------------
+    public function canBeManagedBy(?User $user)
+    {
+        if(!$user) {
+            return false;
+        }
+
+        if($user->id === $this->author_id) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
