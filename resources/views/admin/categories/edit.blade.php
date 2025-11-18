@@ -1,4 +1,4 @@
-<x-site-layout title="Edit {{$category->title}}">
+<x-app-layout title="Edit {{$category->title}}">
 
     <form action="/admin/categories/{{$category->id}}" method="POST">
         @csrf
@@ -11,4 +11,4 @@
         </div>
     </form>
 
-</x-site-layout>
+</x-app-layout>

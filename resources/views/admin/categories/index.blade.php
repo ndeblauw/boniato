@@ -1,4 +1,4 @@
-<x-site-layout title="Categories">
+<x-app-layout title="Categories">
     <ul>
         @foreach($categories as $category)
             <li class="flex gap-x-4">
@@ -14,5 +14,5 @@
         @endforeach
     </ul>
 
-</x-site-layout>
+</x-app-layout>
 

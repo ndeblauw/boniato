@@ -1,4 +1,4 @@
-<x-site-layout title="{{$category->name}}">
+<x-app-layout title="{{$category->name}}">
 
     <ul>
     @foreach($category->articles as $article)
@@ -6,4 +6,4 @@
     @endforeach
     </ul>
 
-</x-site-layout>
+</x-app-layout>

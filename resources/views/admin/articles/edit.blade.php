@@ -1,4 +1,4 @@
-<x-site-layout title="Edit {{$article->title}}">
+<x-app-layout title="Edit {{$article->title}}">
 
     <form action="/admin/articles/{{$article->id}}" method="POST">
         @csrf
@@ -14,4 +14,4 @@
         </div>
     </form>
 
-</x-site-layout>
+</x-app-layout>

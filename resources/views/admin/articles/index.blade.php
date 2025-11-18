@@ -1,4 +1,13 @@
-<x-site-layout title="Articles">
+<x-app-layout title="Articles">
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            My articles
+        </h2>
+    </x-slot>
+
+
+
     <ul>
         @foreach($articles as $article)
             <li class="flex justify-between hover:bg-gray-200">
@@ -18,5 +27,7 @@
         @endforeach
     </ul>
 
-</x-site-layout>
+
+
+</x-app-layout>
 
