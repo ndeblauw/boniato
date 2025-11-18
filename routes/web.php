@@ -11,8 +11,6 @@ Route::resource('categories', \App\Http\Controllers\CategoryController::class)->
 
 
 
-Route::resource('admin/categories', \App\Http\Controllers\AdminCategoryController::class);
-Route::resource('admin/articles', \App\Http\Controllers\AdminArticleController::class);
 
 
 Route::get('/dashboard', function () {
@@ -20,6 +18,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('admin/categories', \App\Http\Controllers\AdminCategoryController::class)
+    Route::resource('admin/articles', \App\Http\Controllers\AdminArticleController::class);
+
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
