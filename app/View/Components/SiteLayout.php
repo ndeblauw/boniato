@@ -8,14 +8,11 @@ use Illuminate\View\Component;
 
 class SiteLayout extends Component
 {
-    public string $title;
     /**
      * Create a new component instance.
      */
-    public function __construct(string $title = 'My Lovely Boniato')
-    {
-        $this->title = $title;
-    }
+    public function __construct(public ?string $title = null)
+    { }
 
     /**
      * Get the view / contents that represent the component.
