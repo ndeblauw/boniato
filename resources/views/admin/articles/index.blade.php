@@ -13,7 +13,15 @@
             <li class="flex justify-between hover:bg-gray-200">
                 <a href="/admin/articles/{{$article->id}}">{{ $article->title }}</a>
 
+                {{ $article->is_published ? 'TRUE' : 'FALSE' }}
+
                 <div class="flex gap-x-4">
+                    @if(!$article->is_published)
+                        <a class="text-green-500" href="/admin/articles/{{$article->id}}/toggle-is-published">PUBLISH</a>
+                    @else
+                        <a class="text-gray-300" href="/admin/articles/{{$article->id}}/toggle-is-published">UNPUBLISH</a>
+                    @endif
+
                     <a href="/admin/articles/{{$article->id}}/edit">EDIT</a>
 
                     <form action="/admin/articles/{{$article->id}}" method="POST">

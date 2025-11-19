@@ -12,6 +12,13 @@ class Article extends Model
 
     protected $guarded = [];
 
+    protected function casts(): array
+    {
+        return [
+            'is_published' => 'bool',
+        ];
+    }
+
     // Model relations ---------------
     public function author()
     {
