@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-    function index()
+    function __invoke()
     {
         //dd('Message from WelcomeController@index');
         //dump('Message from WelcomeController@index');

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
+Route::get('/', \App\Http\Controllers\WelcomeController::class);
 
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{id}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
