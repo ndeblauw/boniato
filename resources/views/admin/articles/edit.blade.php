@@ -9,6 +9,9 @@
         <x-form-textarea name="content" label="Content" placeholder="" rows="10" value="{{$article->content}}" />
 
         <input type="file" name="photo" />
+        @error('photo')
+        <div class="text-red-500">{{$message}}</div>
+        @enderror
 
         <div class="mt-4">
             <button class="bg-gray-200 p-2" type="submit">Update</button>
