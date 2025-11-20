@@ -19,8 +19,6 @@
 
     <img class="w-1/3" src="{{$article->getImageUrl('website')}}" alt="article main image">
 
-    @if($article->photo_path)
-    <img src="/storage/{{$article->photo_path}}" alt="article main image">
     {{$article->content}}
 
     <x-article-comments :article="$article" />
