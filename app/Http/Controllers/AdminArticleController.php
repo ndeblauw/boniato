@@ -87,7 +87,8 @@ class AdminArticleController extends Controller
 
         // First process the file and upload it and get reference
         if($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('articles', 'public');
+            $article->media->each->delete();
+            $article->addMediaFromRequest('photo')->toMediaCollection();
             unset($validated['photo']);
         }
 
