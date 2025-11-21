@@ -49,6 +49,6 @@ class DatabaseSeeder extends Seeder
             $article->categories()->attach($category_list);
         });
 
-        Comment::factory(20)->create();
+        Comment::factory(40)->create();
     }
 }

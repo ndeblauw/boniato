@@ -6,6 +6,18 @@
                 <li class="">
                     <div class="text-xs text-[#26054D]">{{$comment->created_at}}</div>
                     {{$comment->content}}
+
+                    @if($comment->children->isNotEmpty())
+                        <ul class="flex flex-col gap-4 mt-2 pl-2 border-l border-[#26054D]/25">
+                            @foreach($comment->children as $comment)
+                                <li class="">
+                                    <div class="text-xs text-[#26054D]">{{$comment->created_at}}</div>
+                                    {{$comment->content}}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+
                 </li>
             @endforeach
         </ul>

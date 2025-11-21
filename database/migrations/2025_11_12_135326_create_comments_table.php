@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
 
             $table->text('content');
-            $table->foreignId('article_id');
+            $table->foreignId('article_id')->nullable();
+            $table->foreignId('comment_id')->nullable();
 
             $table->timestamps();
         });

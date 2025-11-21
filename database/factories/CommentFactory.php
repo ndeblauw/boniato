@@ -17,9 +17,12 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
+        $parent = fake()->boolean(80) ? 'article' : 'comment';
+
         return [
             'content' => fake()->text(),
-            'article_id' => fake()->numberBetween(1,10),
+            'article_id' =>  ($parent == 'article') ? fake()->numberBetween(1,10) : null,
+            'comment_id' => ($parent == 'comment') ? fake()->numberBetween(1,20) : null,
         ];
     }
 }
