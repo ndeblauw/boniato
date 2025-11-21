@@ -1,5 +1,5 @@
 <div class="mb-4">
-    <label>{{$label}}:</label><br/>
+    @include('components.form_label')
     <textarea
         name="{{$name}}"
         rows="{{$rows}}"
