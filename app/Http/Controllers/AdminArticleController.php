@@ -84,6 +84,7 @@ class AdminArticleController extends Controller
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
             'photo' => ['nullable', 'image', 'max:4096'],
             'categories' => ['nullable'],
+            'author_id' => ['nullable', 'integer', 'exists:users,id'],
         ]);
 
         if($request->has('categories')) {

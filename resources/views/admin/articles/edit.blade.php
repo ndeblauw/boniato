@@ -8,6 +8,8 @@
 
         <x-form-textarea name="content" label="Content" placeholder="" rows="10" value="{{$article->content}}" />
 
+        <x-form-select name="author_id" label="Author" :options="App\Models\User::orderBy('name')->pluck('name','id')->toArray()" :selected="$article->author_id" />
+
         <x-form-checkboxes name="categories" label="Categories" :values="$article->categories->pluck('id')->toArray()" :options="App\Models\Category::orderBy('name')->pluck('name','id')->toArray()"/>
 
 
