@@ -7,7 +7,5 @@
         value="{{old($name,$value)}}"
         class="w-full border @error($name) border-red-500 @else border-black @enderror"
     >
-    @error($name)
-    <div class="text-red-500">{{$message}}</div>
-    @enderror
+    @include('components.form_error')
 </div>
