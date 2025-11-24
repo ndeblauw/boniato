@@ -41,6 +41,8 @@ class AdminArticleController extends Controller
 
         Article::create($validated + ['author_id' => 1]);
 
+        cache()->forget('welcome_page_articles');
+
         return redirect('/admin/articles');
     }
 
@@ -103,6 +105,8 @@ class AdminArticleController extends Controller
 
         $article->update($validated);
 
+        cache()->forget('welcome_page_articles');
+
         // add reference to your article
         return redirect('/admin/articles');
     }
@@ -119,6 +123,8 @@ class AdminArticleController extends Controller
         }
 
         $article->delete();
+
+        cache()->forget('welcome_page_articles');
 
         return redirect('/admin/articles');
     }
