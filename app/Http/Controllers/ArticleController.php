@@ -11,7 +11,11 @@ class ArticleController extends Controller
     {
 
         // Load data
-        $articles = \App\Models\Article::with('author','categories', 'media')->paginate(10);
+        $articles = \App\Models\Article::query()
+            ->select('id', 'title', 'author_id', 'content')
+            ->where('is_published', true)
+            ->with('author:id,name','categories', 'media')
+            ->paginate(100);
         // in case of category filtering: see whereHas('categories', function($query) use ($category) { $query->where('id', $category->id); })->get();)
 
         // Return view with data
