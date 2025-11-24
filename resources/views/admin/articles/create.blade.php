@@ -7,7 +7,7 @@
 
         <x-form-textarea name="content" label="Content" placeholder="" rows="10" />
 
-        <x-form-checkboxes name="categories" label="Categories" :values="$article->categories->pluck('id')->toArray()"
+        <x-form-checkboxes name="categories" label="Categories" :values="[]"
             :options="App\Models\Category::orderBy('name')->pluck('name', 'id')->toArray()" />
 
         <div class="mt-4">
