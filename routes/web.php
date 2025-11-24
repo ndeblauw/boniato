@@ -10,7 +10,7 @@ Route::post('/articles/add-comment', [\App\Http\Controllers\CommentController::c
 
 
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->only(['index', 'show']);
-
+Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(['index', 'show']);
 
 
 
