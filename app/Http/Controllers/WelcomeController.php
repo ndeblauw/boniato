@@ -8,11 +8,15 @@ class WelcomeController extends Controller
 {
     function __invoke()
     {
-        //dd('Message from WelcomeController@index');
-        //dump('Message from WelcomeController@index');
+        // Load 4 most recent articles
+        $articles = \App\Models\Article::query()
+                ->with('author:id,name', 'media', 'categories')
+                ->orderBy('created_at', 'desc')
+                ->take(4)
+                ->get();
 
-        // Business logic can be added here if needed
+        $article = $articles->shift();
 
-        return view('welcome');
+        return view('welcome', compact('article', 'articles'));
     }
 }
