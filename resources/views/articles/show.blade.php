@@ -19,7 +19,7 @@
 
     <img class="w-1/3" src="{{$article->getImageUrl('website')}}" alt="article main image">
 
-    {{$article->content}}
+    {!! $article->content !!}
 
     <x-article-comments :article="$article" />
 
