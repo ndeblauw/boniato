@@ -56,20 +56,16 @@ class AdminArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
-
         return view('admin.articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
-        $article = Article::find($id);
-
         if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
@@ -80,10 +76,8 @@ class AdminArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Article $article)
     {
-        $article = Article::find($id);
-
         if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
@@ -121,10 +115,8 @@ class AdminArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Article $article)
     {
-        $article = Article::find($id);
-
         if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
