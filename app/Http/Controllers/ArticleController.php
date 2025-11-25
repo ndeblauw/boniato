@@ -27,6 +27,10 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
 
+        if(!$article) {
+            return redirect()->route('articles.index');
+        }
+
         return view('articles.show', compact('article'));
     }
 }
