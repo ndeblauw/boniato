@@ -2,7 +2,7 @@
     <ul>
         @foreach($categories as $category)
             <li class="flex gap-x-4">
-                <a href="/categories/{{$category->id}}">{{ $category->name }}</a>
+                <a href="{{route('categories.show', $category)}}">{{ $category->name }}</a>
             </li>
         @endforeach
     </ul>

@@ -26,11 +26,11 @@
             </a>
 
             <nav class="flex gap-x-3 pt-4">
-                <a href="/articles" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Articles</a>
+                <a href="{{route('articles.index')}}" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Articles</a>
                 <span class="text-[#26054D] py-1">|</span>
-                <a href="/categories" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Categories</a>
+                <a href="{{route('categories.index')}}" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Categories</a>
                 <span class="text-[#26054D] py-1">|</span>
-                <a href="/authors" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Authors</a>
+                <a href="{{route('authors.index')}}" class="hover:bg-orange-400 hover:text-[#26054D] p-1 px-2 rounded-xl">Authors</a>
             </nav>
         </div>
         <div>

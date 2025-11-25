@@ -11,15 +11,15 @@
     <ul>
         @foreach($articles as $article)
             <li class="flex justify-between hover:bg-gray-200">
-                <a href="/admin/articles/{{$article->id}}">{{ $article->title }}</a>
+                <a href="{{route('admin.articles.show', $article)}}">{{ $article->title }}</a>
 
                 {{ $article->is_published ? 'TRUE' : 'FALSE' }}
 
                 <div class="flex gap-x-4">
                     @if(!$article->is_published)
-                        <a class="text-green-500" href="/admin/articles/{{$article->id}}/toggle-is-published">PUBLISH</a>
+                        <a class="text-green-500" href="{{route('admin.articles.publish', $article)}}">PUBLISH</a>
                     @else
-                        <a class="text-gray-300" href="/admin/articles/{{$article->id}}/toggle-is-published">UNPUBLISH</a>
+                        <a class="text-gray-300" href="{{route('admin.articles.publish', $article)}}">UNPUBLISH</a>
                     @endif
 
                     <a href="/admin/articles/{{$article->id}}/edit">EDIT</a>
