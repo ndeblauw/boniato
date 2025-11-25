@@ -17,6 +17,7 @@ class FormTextArea extends Component
         public int $rows = 3,
         public string $placeholder = '',
         public string $value = '',
+        public bool $rte = false,
     ) { }
 
     /**
