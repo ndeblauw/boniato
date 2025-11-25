@@ -12,9 +12,9 @@ class AdminArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::where('author_id', auth()->id() )->get();
+        $articles = Article::where('author_id', auth()->id())->get();
 
-        if(auth()->user()->is_admin) {
+        if (auth()->user()->is_admin) {
             $articles = Article::all();
         }
 
@@ -39,7 +39,14 @@ class AdminArticleController extends Controller
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
         ]);
 
-        Article::create($validated + ['author_id' => 1]);
+        $article = Article::create($validated + ['author_id' => 1]);
+
+        if ($request->has('categories')) {
+            $article->categories()->sync($validated['categories']);
+            unset($validated['categories']);
+        } else {
+            $article->categories()->sync([]);
+        }
 
         cache()->forget('welcome_page_articles');
 
@@ -63,7 +70,7 @@ class AdminArticleController extends Controller
     {
         $article = Article::find($id);
 
-        if(!$article->canBeManagedBy(auth()->user())) {
+        if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 
@@ -77,7 +84,7 @@ class AdminArticleController extends Controller
     {
         $article = Article::find($id);
 
-        if(!$article->canBeManagedBy(auth()->user())) {
+        if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 
@@ -89,7 +96,7 @@ class AdminArticleController extends Controller
             'author_id' => ['nullable', 'integer', 'exists:users,id'],
         ]);
 
-        if($request->has('categories')) {
+        if ($request->has('categories')) {
             $article->categories()->sync($validated['categories']);
             unset($validated['categories']);
         } else {
@@ -97,7 +104,7 @@ class AdminArticleController extends Controller
         }
 
         // First process the file and upload it and get reference
-        if($request->hasFile('photo')) {
+        if ($request->hasFile('photo')) {
             $article->media->each->delete();
             $article->addMediaFromRequest('photo')->toMediaCollection();
             unset($validated['photo']);
@@ -118,7 +125,7 @@ class AdminArticleController extends Controller
     {
         $article = Article::find($id);
 
-        if(!$article->canBeManagedBy(auth()->user())) {
+        if (!$article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 
