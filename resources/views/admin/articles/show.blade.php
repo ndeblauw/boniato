@@ -1,4 +1,4 @@
-<x-site-layout title="ADMIN FOR {{$article->title}}">
+<x-app-layout title="ADMIN FOR {{$article->title}}">
 
 
     <div>written by {{$article->author->name}}</div>
@@ -13,4 +13,4 @@
 
 
 
-</x-site-layout>
+</x-app-layout>
