@@ -67,6 +67,13 @@
     </div>
 </header>
 <main class="min-h-102 bg-white">
+
+    <x-session-info/>
+
+
+
+
+
     <div class="mx-auto w-2/3 pt-4">
         @if($title)
             <div class="flex items-center justify-between gap-x-4">
