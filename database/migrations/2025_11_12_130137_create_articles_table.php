@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('author_id');
             $table->boolean('is_published')->default(false);
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }
