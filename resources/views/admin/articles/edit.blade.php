@@ -6,6 +6,8 @@
 
         <x-form-text name="title" label="Title" placeholder="Short but catchy phrase" value="{{$article->title}}" />
 
+        <x-form-text name="slug" label="Slug" placeholder="leave empty if you want autogeneration" value="{{$article->slug}}" />
+
         <x-form-textarea name="content" label="Content" placeholder="" rows="10" value="{{$article->content}}" rte />
 
         <x-form-select name="author_id" label="Author" :options="App\Models\User::orderBy('name')->pluck('name','id')->toArray()" :selected="$article->author_id" />

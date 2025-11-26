@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminArticleController extends Controller
 {
@@ -36,8 +37,13 @@ class AdminArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'min:10', 'max:40'],
+            'slug' => ['nullable', 'string', 'min:10', 'max:40'],
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
         ]);
+
+        if($validated['slug'] === null ) {
+            $validated['slug'] = Str::slug($validated['title']);
+        }
 
         $article = Article::create($validated + ['author_id' => 1]);
 
@@ -84,11 +90,16 @@ class AdminArticleController extends Controller
 
         $validated = $request->validate([
             'title' => ['required', 'string', 'min:10', 'max:40'],
+            'slug' => ['nullable', 'string', 'min:10', 'max:40'],
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
             'photo' => ['nullable', 'image', 'max:4096'],
             'categories' => ['nullable'],
             'author_id' => ['nullable', 'integer', 'exists:users,id'],
         ]);
+
+        if($validated['slug'] === null ) {
+            $validated['slug'] = Str::slug($validated['title']);
+        }
 
         if ($request->has('categories')) {
             $article->categories()->sync($validated['categories']);

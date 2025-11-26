@@ -12,7 +12,7 @@ class ArticleController extends Controller
 
         // Load data
         $articles = \App\Models\Article::query()
-            ->select('id', 'title', 'author_id', 'content')
+            ->select('id', 'title', 'author_id', 'content', 'slug')
             ->where('is_published', true)
             ->with('author:id,name','categories', 'media')
             ->paginate(100);
@@ -23,9 +23,11 @@ class ArticleController extends Controller
 
     }
 
-    function show(int $id)
+    function show(string $slug)
     {
-        $article = Article::find($id);
+        //$article = Article::find($id);
+
+        $article = Article::where('slug', $slug)->orWhere('id', $slug)->first();
 
         if(!$article) {
             return redirect()->route('articles.index');

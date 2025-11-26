@@ -5,6 +5,8 @@
 
         <x-form-text name="title" label="Title" placeholder="Short but catchy phrase" />
 
+        <x-form-text name="slug" label="Slug" placeholder="leave empty if you want autogeneration" value="{{$article->slug}}" />
+
         <x-form-textarea name="content" label="Content" placeholder="" rows="10" />
 
         <x-form-checkboxes name="categories" label="Categories" :values="[]"
