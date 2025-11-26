@@ -9,6 +9,7 @@ Route::post('/articles/add-comment', [\App\Http\Controllers\CommentController::c
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->only(['index', 'show']);
 Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(['index', 'show']);
 
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'form'])->name('search.form');
 
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
