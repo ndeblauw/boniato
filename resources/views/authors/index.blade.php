@@ -6,6 +6,7 @@
         @foreach($authors as $author)
             <a href="{{ route('authors.show', $author) }}">
             <li class="flex justify-between items-center bg-[#26054D]/10 hover:bg-[#26054D]/15   rounded-xl p-4">
+                <img src="{{ $author->getImageUrl('profile') }}" alt="{{ $author->name }}" class="rounded-full w-20 h-20 object-cover">
                 <span class="font-semibold">
                     {{ $author->name }}
                 </span>

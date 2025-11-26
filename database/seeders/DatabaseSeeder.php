@@ -26,18 +26,18 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
         User::create([
-            'name' => 'User',
+            'name' => 'Norman Usermann',
             'email' => 'user@user.com',
             'password' => Hash::make('password'),
             'is_admin' => false,
         ]);
-        User::factory(5)->create();
+        User::factory(5)->withImages()->create();
 
-        Category::create(['name' => 'Burgers']);
-        Category::create(['name' => 'Pizza']);
-        Category::create(['name' => 'Salads']);
-        Category::factory(5)->create();
-        $articles = Article::factory(100)->create();
+        $categories = ['Burgers', 'Pizza', 'Salads', 'Sandwiches', 'Pasta', 'French Fries', 'Drinks'];
+        foreach ($categories as $name) {
+            Category::create(['name' => $name]);
+        }
+        $articles = Article::factory(20)->withImages()->create();
 
         // Associate articles with Categories
         $articles->each(function ($article) {

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -41,4 +42,27 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            return $user;
+        });
+    }
+
+    // Solution from https://laracasts.com/discuss/channels/testing/how-to-disable-factory-callbacks
+    public function withImages(): self
+    {
+        return $this->afterCreating(function (User $user) {
+            $gender = random_int(0, 1) ? 'men' : 'women';
+            $number = random_int(1, 100);
+
+            // More info: https://randomuser.me/api/
+            $url = "https://randomuser.me/api/portraits/{$gender}/{$number}.jpg";
+            $user
+                ->addMediaFromUrl($url)
+                ->toMediaCollection();
+        });
+    }
+
 }
