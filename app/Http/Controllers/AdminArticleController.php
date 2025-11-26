@@ -41,10 +41,6 @@ class AdminArticleController extends Controller
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
         ]);
 
-        if($validated['slug'] === null ) {
-            $validated['slug'] = Str::slug($validated['title']);
-        }
-
         $article = Article::create($validated + ['author_id' => 1]);
 
         if ($request->has('categories')) {
@@ -96,10 +92,6 @@ class AdminArticleController extends Controller
             'categories' => ['nullable'],
             'author_id' => ['nullable', 'integer', 'exists:users,id'],
         ]);
-
-        if($validated['slug'] === null ) {
-            $validated['slug'] = Str::slug($validated['title']);
-        }
 
         if ($request->has('categories')) {
             $article->categories()->sync($validated['categories']);

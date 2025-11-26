@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -24,6 +25,18 @@ class Article extends Model implements HasMedia
         return [
             'is_published' => 'bool',
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Article $article) {
+            dump('before saving:'.$article->slug);
+            if($article->slug === null || $article->slug === '') {
+                $article->slug = Str::slug($article->title);
+            }
+            dump('after saving:'.$article->slug);
+
+        });
     }
 
     // Model relations ---------------
