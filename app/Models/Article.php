@@ -30,12 +30,10 @@ class Article extends Model implements HasMedia
     protected static function booted(): void
     {
         static::saving(function (Article $article) {
-            dump('before saving:'.$article->slug);
+            // Generate slug if not provided
             if($article->slug === null || $article->slug === '') {
                 $article->slug = Str::slug($article->title);
             }
-            dump('after saving:'.$article->slug);
-
         });
     }
 
