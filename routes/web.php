@@ -25,6 +25,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
 // Admin routes
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::resource('categories', \App\Http\Controllers\AdminCategoryController::class);
+    Route::get('get-subscriptions', \App\Http\Controllers\AdminSubscriptionExportController::class)->name('subscriptions.export');
 });
 
 Route::prefix('haha')->middleware('auth')->group(function () {

@@ -16,4 +16,10 @@ class Subscription extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // Model methods -------------
+    public function email_for_export(): string
+    {
+        return ($this->email !== null) ? $this->email : $this->user->email;
+    }
 }
