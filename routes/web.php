@@ -16,12 +16,15 @@ Route::get('dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Logged in user routes
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('categories', \App\Http\Controllers\AdminCategoryController::class)
-        ->middleware('is_admin');
-
     Route::resource('articles', \App\Http\Controllers\AdminArticleController::class);
     Route::get('articles/{article}/toggle-is-published', \App\Http\Controllers\AdminArticleToggleIsPublishedController::class)->name('articles.publish');;
+});
+
+// Admin routes
+Route::name('admin.')->prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
+    Route::resource('categories', \App\Http\Controllers\AdminCategoryController::class);
 });
 
 Route::prefix('haha')->middleware('auth')->group(function () {
