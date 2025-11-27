@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\InformAdminsOfNewPublicationJob;
 use App\Models\Article;
 use App\Models\User;
 use App\Notifications\ArticlePublishedNotification;
@@ -18,10 +19,7 @@ class AdminArticleToggleIsPublishedController extends Controller
         ]);
 
         if($article->is_published) {
-            $admins = User::where('is_admin', true)->get();
-            foreach($admins as $admin) {
-                $admin->notify(new ArticlePublishedNotification($article, auth()->user()));
-            }
+            InformAdminsOfNewPublicationJob::dispatch($article, auth()->user());
         }
 
         return redirect()->back();
