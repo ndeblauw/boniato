@@ -52,12 +52,18 @@ class User extends Authenticatable implements HasMedia
         ];
     }
 
-    // Model relations
+    // Model relations ---------------------------------------------------
     public function articles()
     {
         return $this->hasMany(Article::class, 'author_id', 'id');
     }
 
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
+
+    // Model methods ---------------------------------------------------
     public function getImageUrl(string $conversion = 'preview'): string
     {
         if($this->media->first()) {
@@ -67,6 +73,7 @@ class User extends Authenticatable implements HasMedia
         }
     }
 
+    // Medialibrary conversions ---------------------------------------------------
     public function registerMediaConversions(?Media $media = null): void
     {
         $this

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'is_admin' => false,
         ]);
-        User::factory(5)->withImages()->create();
+        User::factory(10)->withImages()->create();
 
         $categories = ['Burgers', 'Pizza', 'Salads', 'Sandwiches', 'Pasta', 'French Fries', 'Drinks'];
         foreach ($categories as $name) {
@@ -50,5 +51,7 @@ class DatabaseSeeder extends Seeder
         });
 
         Comment::factory(40)->create();
+
+        Subscription::factory(20)->create();
     }
 }
