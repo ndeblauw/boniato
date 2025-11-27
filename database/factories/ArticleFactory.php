@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
@@ -19,8 +18,7 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $title = fake()->realTextBetween(20, 50),
-            'slug' => Str::slug($title),
+            'title' => fake()->realTextBetween(20, 50),
             'content' => fake()->paragraph(5),
             'author_id' => fake()->numberBetween(1,5),
             'deleted_at' => fake()->boolean(80) ? null : fake()->datetime(),
