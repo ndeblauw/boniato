@@ -31,6 +31,8 @@
         </div>
     </main>
 
+    <x-site-layout-subscription-block/>
+
     <x-site-layout-footer/>
 </body>
 </html>

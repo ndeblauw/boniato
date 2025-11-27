@@ -5,13 +5,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Http\Controllers\WelcomeController::class);
 
 Route::resource('articles', \App\Http\Controllers\ArticleController::class)->only(['index', 'show']);
-Route::post('/articles/add-comment', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+Route::post('articles/add-comment', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->only(['index', 'show']);
 Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(['index', 'show']);
 
-Route::get('/search', [\App\Http\Controllers\SearchController::class, 'form'])->name('search.form');
+Route::get('search', [\App\Http\Controllers\SearchController::class, 'form'])->name('search.form');
+Route::post('subscriptions', [\App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscriptions.store');
 
-Route::get('/dashboard', function () {
+Route::get('dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
