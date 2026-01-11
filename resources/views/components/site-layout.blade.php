@@ -18,10 +18,10 @@
     <x-site-layout-header/>
 
     <main class="min-h-102 bg-white">
-        <div class="mx-auto w-2/3 pt-4">
+        <div class="mx-auto w-11/12 md:w-2/3 pt-4 px-2">
             @if($title)
                 <div class="flex items-center justify-between gap-x-4">
-                    <h1 class="text-3xl font-bold mb-4 text-[#26054D] shrink-0">{{$title}}</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold mb-4 text-[#26054D] shrink-0">{{$title}}</h1>
                     <hr class="w-full border-t-4 border-[#26054D] opacity-25 pb-2"/>
                 </div>
             @endif
