@@ -1,5 +1,7 @@
 <x-site-layout>
 
+
+    @if($article)
     <div class="bg-linear-to-br from-[#7B7075]/10 via-orange-300 to-[#7B7075]/10 p-2 mb-8 rounded">
 
         <div class="flex justify-between items-center gap-x-8">
@@ -29,6 +31,7 @@
 
 
     </div>
+    @endif
 
     <div class="grid grid-cols-3 gap-12">
         @foreach($articles as $article)
