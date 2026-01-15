@@ -19,6 +19,9 @@
 
     <main class="min-h-102 bg-white">
         <div class="mx-auto w-2/3 pt-4">
+
+            <x-quote/>
+
             @if($title)
                 <div class="flex items-center justify-between gap-x-4">
                     <h1 class="text-3xl font-bold mb-4 text-[#26054D] shrink-0">{{$title}}</h1>

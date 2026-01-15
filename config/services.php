@@ -14,6 +14,10 @@ return [
     |
     */
 
+    'api_ninjas' => [
+        'key' => env('API_NINJAS_KEY', null),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],
