@@ -13,6 +13,7 @@
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-flare": "^2.2",
         "spatie/laravel-medialibrary": "^11.17",
+        "spatie/laravel-ray": "^1.43",
         "symfony/http-client": "^8.0",
         "symfony/postmark-mailer": "^8.0"
     },
