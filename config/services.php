@@ -27,6 +27,11 @@ return [
         'token' => env('IPINFO_TOKEN', null),
     ],
 
+    'ipstack' => [
+        'endpoint' => 'https://api.ipstack.com/',
+        'key' => env('IPSTACK_KEY', null),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],
