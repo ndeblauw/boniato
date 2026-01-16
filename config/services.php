@@ -18,6 +18,10 @@ return [
         'key' => env('API_NINJAS_KEY', null),
     ],
 
+    'weather_api' => [
+        'key' => env('WEATHER_API_KEY', null),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],
