@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 
-class IpStackService
+class IpStackService implements IpServiceInterface
 {
     public string $endpoint;
     public string $key;
@@ -14,8 +14,12 @@ class IpStackService
         $this->key = config('services.ipstack.key');
     }
 
-    public function getCountry(string $ip_address): string
+    public function getCountry(?string $ip_address): string
     {
+        if($ip_address === null) {
+            return 'Belgium';
+        }
+
         $data = $this->getIpInfo($ip_address);
 
         return $data['country_name'] ?? 'unknown';

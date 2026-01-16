@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 
-class IpInfoService
+class IpInfoService implements IpServiceInterface
 {
     public string $endpoint;
     public string $token;
@@ -14,8 +14,12 @@ class IpInfoService
         $this->token = config('services.ipinfo.token');
     }
 
-    public function getCountry(string $ip_address): string
+    public function getCountry(?string $ip_address): string
     {
+        if($ip_address === null) {
+            return 'Belgium';
+        }
+
         $data = $this->getIpInfo($ip_address);
 
         return $data['country'] ?? 'unknown';
