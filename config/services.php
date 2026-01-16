@@ -22,6 +22,11 @@ return [
         'key' => env('WEATHER_API_KEY', null),
     ],
 
+    'ipinfo' => [
+        'endpoint' => 'https://api.ipinfo.io/lite/',
+        'token' => env('IPINFO_TOKEN', null),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],
