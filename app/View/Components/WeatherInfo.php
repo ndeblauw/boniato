@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use App\Services\IpInfoService;
+use App\Services\WeatherService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -23,6 +25,15 @@ class WeatherInfo extends Component
     {
         $ip = request()->ip();
 
-        return view('components.weather-info', compact('ip'));
+        if($ip = '127.0.0.1') {
+            $ip = '91.126.71.186';
+        }
+
+        $country = (new IpInfoService())->getCountry($ip);
+        $weather = (new WeatherService())->getWeather($country);
+
+        return view('components.weather-info', compact('ip', 'country', 'weather'));
+
+
     }
 }
