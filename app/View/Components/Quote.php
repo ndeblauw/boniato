@@ -23,7 +23,6 @@ class Quote extends Component
     public function render(): View|Closure|string
     {
         $quote = cache()->flexible('random-quote', [10, 20], function() {
-            ray('cache miss: fetching new quote')->orange();
             return $this->fetchQuote();
         });
 
@@ -36,9 +35,6 @@ class Quote extends Component
         $key = config('services.api_ninjas.key');
 
         try {
-            ray('start fetching quote')->green();
-            sleep(3);
-
             $response = Http::withHeaders([
                 'X-Api-Key' => $key,
             ])->get($endpoint);
@@ -54,8 +50,6 @@ class Quote extends Component
                 'author' => 'Nico Deblauwe',
             ];
         }
-
-        ray('finished fetching quote')->green();
 
         return $quote;
     }
