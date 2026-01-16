@@ -18,7 +18,7 @@ class IpInfoService
     {
         $data = $this->getIpInfo($ip_address);
 
-        return $data['country'];
+        return $data['country'] ?? 'unknown';
     }
 
     public function getIpInfo(string $ip_address)
