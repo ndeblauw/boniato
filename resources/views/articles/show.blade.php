@@ -21,6 +21,6 @@
 
     {!! $article->content !!}
 
-    <x-article-comments :article="$article" />
+    <livewire:comment-section :article="$article" />
 
 </x-site-layout>
