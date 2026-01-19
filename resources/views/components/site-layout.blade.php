@@ -39,7 +39,7 @@
         </div>
     </main>
 
-    <x-site-layout-subscription-block/>
+    <livewire:subscription-box />
 
     <x-site-layout-footer/>
 </body>

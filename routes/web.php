@@ -10,7 +10,6 @@ Route::resource('categories', \App\Http\Controllers\CategoryController::class)->
 Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(['index', 'show']);
 
 Route::get('search', [\App\Http\Controllers\SearchController::class, 'form'])->name('search.form');
-Route::post('subscriptions', [\App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscriptions.store');
 
 Route::get('dashboard', function () {
     return view('userzone.dashboard');
