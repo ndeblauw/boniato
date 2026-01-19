@@ -33,6 +33,10 @@
     </div>
     @endif
 
+    <div>
+        <livewire:counter counter="5" />
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
         @foreach($articles as $article)
             <div class="bg-linear-to-br from-[#7B7075]/5 via-orange-100 to-[#7B7075]/10 p-1 mb-8 rounded h-full flex flex-col">
