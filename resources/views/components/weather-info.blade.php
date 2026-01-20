@@ -1,4 +1,4 @@
-<div class="bg-yellow-200 p-4 rounded">
+<div class="bg-yellow-300 p-6 rounded">
     Your IP address is {{$ip}}, you are in {{$weather['city']}}<br/>
     <br/>
     @if($weather['temperature'])
