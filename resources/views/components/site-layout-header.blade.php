@@ -1,5 +1,5 @@
-<header class="bg-black text-white mb-2 h-16 border-b-4 border-purple-600">
-    <div class="mx-auto w-2/3 flex gap-x-12 items-center justify-between">
+<header class="bg-purple-600 text-white h-16">
+    <div class="mx-auto w-2/3 flex gap-x-12 items-center justify-between h-full">
         <div class="flex gap-x-12 items-center">
             <a href="/" class="font-semibold flex items-center gap-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 my-2" viewBox="0 0 640 640">
@@ -9,28 +9,26 @@
                 <span class="text-2xl">BoNiaTo</span>
             </a>
 
-            <nav class="flex gap-x-3 pt-4">
-                <a href="{{route('articles.index')}}" class="hover:bg-purple-600 hover:text-white p-1 px-2">Articles</a>
-                <span class="text-white py-1">|</span>
-                <a href="{{route('categories.index')}}" class="hover:bg-purple-600 hover:text-white p-1 px-2">Categories</a>
-                <span class="text-white py-1">|</span>
-                <a href="{{route('authors.index')}}" class="hover:bg-purple-600 hover:text-white p-1 px-2">Authors</a>
+            <nav class="flex gap-x-1">
+                <a href="{{route('articles.index')}}" class="hover:bg-purple-700 p-2 px-3">Articles</a>
+                <a href="{{route('categories.index')}}" class="hover:bg-purple-700 p-2 px-3">Categories</a>
+                <a href="{{route('authors.index')}}" class="hover:bg-purple-700 p-2 px-3">Authors</a>
             </nav>
         </div>
         <div>
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+                <nav class="flex items-center justify-end gap-1">
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 border-white hover:bg-purple-600 hover:text-white hover:border-purple-600 border text-white text-sm leading-normal"
+                            class="inline-block px-5 py-2 bg-white text-purple-600 hover:bg-purple-700 hover:text-white text-sm leading-normal"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 text-white border border-transparent hover:border-purple-600 text-sm leading-normal"
+                            class="inline-block px-5 py-2 text-white hover:bg-purple-700 text-sm leading-normal"
                         >
                             Log in
                         </a>
@@ -38,7 +36,7 @@
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 border-white hover:bg-purple-600 hover:text-white hover:border-purple-600 border text-white text-sm leading-normal">
+                                class="inline-block px-5 py-2 bg-white text-purple-600 hover:bg-purple-700 hover:text-white text-sm leading-normal">
                                 Register
                             </a>
                         @endif

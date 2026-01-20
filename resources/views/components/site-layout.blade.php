@@ -28,9 +28,8 @@
             </div>
 
             @if($title)
-                <div class="flex items-center justify-between gap-x-4">
-                    <h1 class="text-3xl font-bold mb-4 text-black shrink-0">{{$title}}</h1>
-                    <hr class="w-full border-t-4 border-purple-600 opacity-25 pb-2"/>
+                <div class="bg-purple-600 text-white p-4 mb-6">
+                    <h1 class="text-3xl font-bold">{{$title}}</h1>
                 </div>
             @endif
 
