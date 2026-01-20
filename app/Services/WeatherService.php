@@ -40,7 +40,10 @@ class WeatherService
             }
 
         } catch (\Exception $e) {
-            ray($e)->red();
+            return [
+                'temperature' => null,
+                'text' => 'Error in fetching weather data',
+            ];
         }
 
     }
