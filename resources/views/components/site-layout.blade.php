@@ -23,7 +23,7 @@
             <div class="grid grid-cols-2 gap-6">
                 <x-quote/>
 
-                <x-weather-info/>
+                <livewire:weather-widget/>
                 
             </div>
 
