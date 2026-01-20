@@ -22,6 +22,8 @@ return [
         'key' => env('WEATHER_API_KEY', null),
     ],
 
+    'ip_service' => env('IP_SERVICE', 'ipinfo'),
+
     'ipinfo' => [
         'endpoint' => 'https://api.ipinfo.io/lite/',
         'token' => env('IPINFO_TOKEN', null),
