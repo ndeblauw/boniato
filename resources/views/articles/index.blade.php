@@ -18,7 +18,7 @@
                         </div>
                         <div class="text-sm">written by <span class="font-semibold">{{$article->author->name}}</span></div>
                     </div>
-                    <a href="/articles/{{$article->slug}}" class="block mb-2 hover:text-white">
+                    <a href="/articles/{{$article->slug}}" class="block mb-2">
                         <h2 class="font-bold text-xl">{{$article->title}}</h2>
 
                         <p>

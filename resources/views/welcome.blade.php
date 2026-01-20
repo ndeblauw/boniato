@@ -50,7 +50,7 @@
 
                     <div class="mb-2 flex gap-2">
                         @foreach($article->categories as $category)
-                            <span class="bg-black text-white px-2 py-1 text-xs">{{$category->name}}</span>
+                            <a href="/categories/{{$category->id}}" class="bg-black text-white px-2 py-1 text-xs">{{$category->name}}</a>
                         @endforeach
                     </div>
                     <div class="text-sm mb-2">written by <span class="font-semibold">{{$article->author->name}}</span></div>
