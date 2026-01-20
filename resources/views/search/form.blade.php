@@ -1,4 +1,9 @@
 <x-site-layout>
+
+    <livewire:article-search />
+
+
+    {{--
     <form>
 
         <x-form-text name="title" label="Search for articles with title" placeholder="your search keyword" :value="$title"/>
@@ -21,5 +26,6 @@
     @else
     nothing to show
     @endif
+    --}}
 
 </x-site-layout>
