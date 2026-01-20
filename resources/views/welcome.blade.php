@@ -1,5 +1,9 @@
 <x-site-layout>
 
+    <livewire:slow-loading-component />
+
+    <livewire:listening-component />
+
 
     @if($article)
     <div class="bg-linear-to-br from-[#7B7075]/10 via-orange-300 to-[#7B7075]/10 p-2 mb-8 rounded">
