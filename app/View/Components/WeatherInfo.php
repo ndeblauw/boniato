@@ -13,7 +13,7 @@ class WeatherInfo extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public WeatherService $weatherService)
     {
         //
     }
@@ -27,12 +27,12 @@ class WeatherInfo extends Component
 
         if($ip = '127.0.0.1') {
             $ip = '91.126.71.186';
+            // $ip = '46.224.4.88';
         }
 
-        $country = (new IpInfoService())->getCountry($ip);
-        $weather = (new WeatherService())->getWeather($country);
+        $weather = $this->weatherService->forIp($ip)->getWeather();
 
-        return view('components.weather-info', compact('ip', 'country', 'weather'));
+        return view('components.weather-info', compact('ip', 'weather'));
 
 
     }

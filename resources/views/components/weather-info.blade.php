@@ -1,5 +1,5 @@
-<div class="bg-yellow-200 p-4 rounded">
-    Your IP address is {{$ip}}, you are in {{$country}}<br/>
+<div class="bg-yellow-300 p-6 rounded">
+    Your IP address is {{$ip}}, you are in {{$weather['city']}}<br/>
     <br/>
     @if($weather['temperature'])
         The temperature is {{$weather['temperature']}} °C, it is {{$weather['text']}}
