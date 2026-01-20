@@ -1,25 +1,24 @@
 <x-site-layout title="Articles overview">
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-0">
 
         {{ $articles->links() }}
 
         @foreach($articles as $article)
-            <div class="flex">
-                <div class="w-32 shrink-0 mr-4">
+            <div class="flex bg-white p-6 hover:bg-black hover:text-white transition-colors">
+                <div class="w-32 shrink-0 mr-6">
                     <img class="w-full" src="{{$article->getImageUrl('preview')}}" alt="article main image">
                 </div>
                 <div>
-                    <div class="flex items-center gap-x-6 mb-4 -mt-2">
-                        <div class="">
+                    <div class="flex items-center gap-x-4 mb-3">
+                        <div class="flex gap-2">
                             @foreach($article->categories as $category)
-                                <a href="/categories/{{$category->id}}" class="bg-[#FC6E7F] text-[#26054D] rounded-full px-2">{{$category->name}}</a>
+                                <span class="bg-purple-600 text-white px-2 py-1 text-xs">{{$category->name}}</span>
                             @endforeach
                         </div>
-                        |
-                        <div class="text-gray-700">written by <span class="font-semibold">{{$article->author->name}}</span></div>
+                        <div class="text-sm">written by <span class="font-semibold">{{$article->author->name}}</span></div>
                     </div>
-                    <a href="/articles/{{$article->slug}}" class="block mb-2 hover:gray-50">
+                    <a href="/articles/{{$article->slug}}" class="block mb-2">
                         <h2 class="font-bold text-xl">{{$article->title}}</h2>
 
                         <p>

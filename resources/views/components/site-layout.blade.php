@@ -17,20 +17,18 @@
 
     <x-site-layout-header/>
 
-    <main class="min-h-102 bg-white">
+    <main class="min-h-[25.5rem] bg-white">
         <div class="mx-auto w-2/3 pt-4">
 
-            <div class="grid grid-cols-2 gap-6">
-                <x-quote/>
-
-                <livewire:weather-widget/>
-                
-            </div>
+            <livewire:weather-widget/>
 
             @if($title)
-                <div class="flex items-center justify-between gap-x-4">
-                    <h1 class="text-3xl font-bold mb-4 text-[#26054D] shrink-0">{{$title}}</h1>
-                    <hr class="w-full border-t-4 border-[#26054D] opacity-25 pb-2"/>
+                <div class="bg-[repeating-linear-gradient(45deg,rgba(147,51,234,0.95)_0,rgba(147,51,234,0.95)_10px,transparent_10px,transparent_20px)] h-2">
+                    &nbsp;
+                </div>
+
+                <div class="bg-purple-600 text-white p-4 mb-6 ">
+                    <h1 class="text-3xl font-bold">{{$title}}</h1>
                 </div>
             @endif
 

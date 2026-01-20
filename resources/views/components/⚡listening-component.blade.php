@@ -15,6 +15,6 @@ new class extends Component
 };
 ?>
 
-<div class="bg-blue-100 p-4 text-blue-800 rounded">
+<div class="bg-purple-600 text-white p-4">
     {{ $message }}
 </div>
