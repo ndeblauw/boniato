@@ -17,7 +17,7 @@
 
     <x-site-layout-header/>
 
-    <main class="min-h-102 bg-white">
+    <main class="min-h-[25.5rem] bg-white">
         <div class="mx-auto w-2/3 pt-4">
 
             <div class="grid grid-cols-2 gap-6">

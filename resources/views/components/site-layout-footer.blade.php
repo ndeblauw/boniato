@@ -1,4 +1,4 @@
-<footer class="border-t-8 border-purple-600 bg-black mt-10 min-h-54 py-12">
+<footer class="border-t-8 border-purple-600 bg-black mt-10 min-h-[13.5rem] py-12">
     <div class="mx-auto w-2/3 flex justify-between items-top">
         <div>
             <a href="/" class="font-semibold flex items-center gap-x-2">
