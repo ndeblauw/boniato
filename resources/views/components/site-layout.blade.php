@@ -23,9 +23,8 @@
             <div class="grid grid-cols-2 gap-6">
                 <x-quote/>
 
-                {{--
                 <x-weather-info/>
---}}
+                
             </div>
 
             @if($title)
