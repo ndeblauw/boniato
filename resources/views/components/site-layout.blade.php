@@ -29,8 +29,8 @@
 
             @if($title)
                 <div class="flex items-center justify-between gap-x-4">
-                    <h1 class="text-3xl font-bold mb-4 text-[#26054D] shrink-0">{{$title}}</h1>
-                    <hr class="w-full border-t-4 border-[#26054D] opacity-25 pb-2"/>
+                    <h1 class="text-3xl font-bold mb-4 text-black shrink-0">{{$title}}</h1>
+                    <hr class="w-full border-t-4 border-purple-600 opacity-25 pb-2"/>
                 </div>
             @endif
 

@@ -6,7 +6,7 @@
 
 
     @if($article)
-    <div class="bg-linear-to-br from-[#7B7075]/10 via-orange-300 to-[#7B7075]/10 p-2 mb-8 rounded">
+    <div class="bg-white border-4 border-black p-2 mb-8">
 
         <div class="flex flex-col lg:flex-row justify-between items-center gap-x-8 lg:gap-8">
 
@@ -17,7 +17,7 @@
                 <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4 -mt-2">
                     <div class="">
                         @foreach($article->categories as $category)
-                            <a href="/categories/{{$category->id}}" class="bg-[#FC6E7F] text-[#26054D] rounded-full px-2">{{$category->name}}</a>
+                            <a href="/categories/{{$category->id}}" class="bg-purple-600 text-white px-2">{{$category->name}}</a>
                         @endforeach
                     </div>
                     |
@@ -43,7 +43,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
         @foreach($articles as $article)
-            <div class="bg-linear-to-br from-[#7B7075]/5 via-orange-100 to-[#7B7075]/10 p-1 mb-8 rounded h-full flex flex-col">
+            <div class="bg-white border-2 border-black p-1 mb-8 h-full flex flex-col">
 
                 <img class="w-full" src="{{$article->getImageUrl('website')}}" alt="article main image">
 
@@ -51,7 +51,7 @@
 
                     <div class="h-6">
                         @foreach($article->categories as $category)
-                            <a href="/categories/{{$category->id}}" class="bg-[#FC6E7F] text-[#26054D] rounded-full px-2">{{$category->name}}</a>
+                            <a href="/categories/{{$category->id}}" class="bg-purple-600 text-white px-2">{{$category->name}}</a>
                         @endforeach
                     </div>
                     <div class="text-gray-700">written by <span class="font-semibold">{{$article->author->name}}</span></div>

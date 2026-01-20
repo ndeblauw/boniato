@@ -38,18 +38,18 @@ new class extends Component {
 ?>
 
 <div class="mx-auto w-4/5 mt-8">
-    <div class="border-2 border-pink-500 bg-pink-50 text-pink-500 p-6 rounded-lg">
+    <div class="border-4 border-purple-600 bg-white text-black p-6">
 
         @if($message)
-            <div class="mb-4 text-green-500 text-sm">{{ $message }}</div>
+            <div class="mb-4 text-purple-600 text-sm">{{ $message }}</div>
         @else
             <form wire:submit="addToMailinglist()" class="flex justify-between items-center">
                 Email:
-                <input wire:model="email" type="text" name="email" class="border border-pink-500"/>
+                <input wire:model="email" type="text" name="email" class="border-2 border-black"/>
                 @error('email')
                 <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
-                <button type="submit" class="bg-pink-500 text-white px-4 py-3 rounded font-medium">Subscribe</button>
+                <button type="submit" class="bg-purple-600 text-white px-4 py-3 font-medium">Subscribe</button>
             </form>
         @endif
 
