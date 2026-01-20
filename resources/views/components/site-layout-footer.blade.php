@@ -1,3 +1,5 @@
+<div class="bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.95)_0,rgba(0,0,0,0.95)_10px,transparent_10px,transparent_20px)] pr-4 pb-2">
+
 <footer class="bg-black mt-10 min-h-[13.5rem] py-12">
     <div class="mx-auto w-2/3 flex justify-between items-top">
         <div>
@@ -10,6 +12,9 @@
             </a>
             <p class="text-sm text-gray-400">A blog from Happy PoTaToes Inc</p>
         </div>
+
+        <x-quote/>
+
         <div class="flex flex-col gap-4 text-gray-400">
             <p>some really important legal stuff</p>
             <p>and contact info</p>

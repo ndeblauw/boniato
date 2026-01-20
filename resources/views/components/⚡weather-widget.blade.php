@@ -24,16 +24,26 @@ new #[Defer] class extends Component {
         $this->weather = $this->weatherService->forIp($this->ip)->getWeather();
     }
 
-    //
+    public function placeholder()
+    {
+        return <<<HTML
+            <div class="p-6 rounded animate-pulse">
+                Loading weather information...
+            </div>
+        HTML;
+    }
 };
 ?>
 
-<div class="bg-yellow-100 p-6 rounded">
-    Your IP address is {{$ip}}, you are in {{$weather['city']}}<br/>
-    <br/>
-    @if($weather['temperature'])
-        The temperature is {{$weather['temperature']}} °C, it is {{$weather['text']}}
-    @else
-        <span class="text-red-500">{{$weather['text']}}</span>
-    @endif
+<div class="p-6 rounded flex justify-between items-center">
+    <div>
+        @if($weather['temperature'])
+            The temperature is {{$weather['temperature']}} °C, it is {{$weather['text']}}
+        @else
+            <span class="text-red-500">{{$weather['text']}}</span>
+        @endif
+    </div>
+    <div>
+        Your IP address is {{$ip}}, you are in {{$weather['city']}}
+    </div>
 </div>

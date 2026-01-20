@@ -1,3 +1,4 @@
+<div class="bg-[repeating-linear-gradient(45deg,rgba(147,51,234,0.95)_0,rgba(147,51,234,0.95)_10px,transparent_10px,transparent_20px)] pt-1">
 <header class="bg-purple-600 text-white h-16">
     <div class="mx-auto w-2/3 flex gap-x-12 items-center justify-between h-full">
         <div class="flex gap-x-12 items-center">
@@ -48,3 +49,4 @@
 
     </div>
 </header>
+</div>

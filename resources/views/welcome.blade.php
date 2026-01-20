@@ -1,43 +1,44 @@
 <x-site-layout>
 
-    <livewire:slow-loading-component />
+    <div class="grid grid-cols-4 gap-8">
 
-    <livewire:listening-component />
+        <div class="bg-black text-white p-6 mb-8 col-span-3 ">
 
+            @if($article)
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-x-8 lg:gap-8">
 
-    @if($article)
-    <div class="bg-black text-white p-6 mb-8">
+                    <img class="w-full lg:w-1/2" src="{{$article->getImageUrl('website')}}" alt="article main image">
 
-        <div class="flex flex-col lg:flex-row justify-between items-center gap-x-8 lg:gap-8">
+                    <div>
 
-            <img class="w-full lg:w-1/2" src="{{$article->getImageUrl('website')}}" alt="article main image">
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
+                            <div class="flex gap-2">
+                                @foreach($article->categories as $category)
+                                    <a href="/categories/{{$category->id}}" class="bg-purple-600 text-white px-3 py-1">{{$category->name}}</a>
+                                @endforeach
+                            </div>
+                            <div class="text-gray-300">written by <span class="font-semibold">{{$article->author->name}}</span></div>
+                        </div>
 
-            <div>
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{{$article->title}}</h1>
 
-                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
-                    <div class="flex gap-2">
-                        @foreach($article->categories as $category)
-                            <a href="/categories/{{$category->id}}" class="bg-purple-600 text-white px-3 py-1">{{$category->name}}</a>
-                        @endforeach
+                        <a href="/articles/{{$article->slug}}" class="line-clamp-5">
+                            {{$article->content}}
+                        </a>
+
                     </div>
-                    <div class="text-gray-300">written by <span class="font-semibold">{{$article->author->name}}</span></div>
                 </div>
 
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{{$article->title}}</h1>
+            @endif
+        </div>
+        <div class="flex flex-col gap-6">
+            <livewire:slow-loading-component />
 
-                <a href="/articles/{{$article->slug}}" class="line-clamp-5">
-                    {{$article->content}}
-                </a>
+            <livewire:listening-component />
 
-            </div>
+            <livewire:counter counter="5" />
         </div>
 
-
-    </div>
-    @endif
-
-    <div>
-        <livewire:counter counter="5" />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
