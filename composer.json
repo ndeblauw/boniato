@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "fiveam-code/laravel-notion-api": "*",
         "laravel/framework": "^12.37",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
@@ -22,6 +23,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.16",
         "fakerphp/faker": "^1.23",
+        "laravel/boost": "^1.8",
         "laravel/breeze": "^2.3",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",

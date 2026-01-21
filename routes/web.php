@@ -10,6 +10,8 @@ Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(
 
 Route::view('search', 'search.form')->name('search.form');
 
+Route::view('notion', 'notion')->name('notion');
+
 Route::get('dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
