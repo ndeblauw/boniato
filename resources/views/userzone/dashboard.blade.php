@@ -6,6 +6,12 @@
     </x-slot>
 
 
-    {{ __("You're logged in!") }}
-                <a href="/admin/articles">go to your articles</a>
+    <div>
+        {{ __("You're logged in!") }}
+        <a href="/admin/articles">go to your articles</a>
+
+    </div>
+
+    <livewire:api-key-generator />
+
 </x-app-layout>

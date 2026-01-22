@@ -37,4 +37,18 @@ class ArticleController extends Controller
 
         return new ArticleShowResource($article);
     }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'min:10', 'max:40'],
+            'slug' => ['nullable', 'string', 'min:10', 'max:40'],
+            'content' => ['nullable', 'string', 'min:10', 'max:500'],
+            'file' => ['nullable', 'file', 'mimes:jpg,png,pdf', 'max:2048'],
+        ]);
+
+        $article = Article::create($validated + ['author_id' => auth()->id(), 'is_published' => false]);
+
+        return response()->json(new ArticleShowResource($article), 201);
+    }
 }
