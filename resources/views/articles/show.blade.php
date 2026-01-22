@@ -16,7 +16,28 @@
         </div>
     </div>
 
-    <img class="w-1/3 mb-6" src="{{$article->getImageUrl('website')}}" alt="article main image">
+    <div class="mb-6 flex gap-6">
+        <img class="w-1/3 mb-6" src="{{$article->getImageUrl('website')}}" alt="article main image">
+
+        <div>
+            <div class="bg-pink-500 text-pink-50">
+                <form action="{{route('articles.sponsor', ['article' => $article])}}" class="inline">
+
+                    <input type="text" name="amount" value="5" class="w-16 rounded p-1 text-black" placeholder="Amount (euro)">
+
+                    <button type="submit" class="bg-pink-700 px-3 py-1 rounded">Sponsor</button>
+
+                </form>
+            </div>
+
+            @if(request()->has('sponsored') && request()->sponsored == 'true')
+                <div class="mt-4 p-4 bg-yellow-100 border border-yellow-300">
+                    Thank you for sponsoring this article! Your support helps us create more great content.
+                </div>
+            @endif
+        </div>
+
+    </div>
 
     {!! $article->content !!}
 

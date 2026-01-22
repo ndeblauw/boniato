@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Http\Controllers\WelcomeController::class);
 
 Route::resource('articles', \App\Http\Controllers\ArticleController::class)->only(['index', 'show']);
+Route::get('articles/{article}/sponsor/', [\App\Http\Controllers\ArticleSponsorController::class, 'preparePayment'])->middleware('auth')->name('articles.sponsor');
+
+
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->only(['index', 'show']);
 Route::resource('authors', \App\Http\Controllers\AuthorController::class)->only(['index', 'show']);
 
@@ -18,6 +21,7 @@ Route::get('dashboard', function () {
 
 // Logged in user routes
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
+
     Route::resource('articles', \App\Http\Controllers\AdminArticleController::class);
     Route::get('articles/{article}/toggle-is-published', \App\Http\Controllers\AdminArticleToggleIsPublishedController::class)->name('articles.publish');;
 });

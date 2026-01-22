@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+Route::post('mollie/webhook', \App\Http\Controllers\Api\MollieWebhookController::class)->name('api.mollie.webhook');
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/articles', [\App\Http\Controllers\Api\ArticleController::class, 'index'])->name('api.articles.index');
     Route::get('/articles/{id}', [\App\Http\Controllers\Api\ArticleController::class, 'show'])->name('api.articles.show');
