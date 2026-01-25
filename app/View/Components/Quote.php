@@ -22,7 +22,7 @@ class Quote extends Component
      */
     public function render(): View|Closure|string
     {
-        $quote = cache()->flexible('random-quote', [10, 20], function() {
+        $quote = cache()->flexible('random-quote', [10, 20], function () {
             return $this->fetchQuote();
         });
 
@@ -31,7 +31,7 @@ class Quote extends Component
 
     private function fetchQuote()
     {
-        $endpoint="https://api.api-ninjas.com/v2/randomquotes";
+        $endpoint = 'https://api.api-ninjas.com/v2/randomquotes';
         $key = config('services.api_ninjas.key');
 
         try {
@@ -39,12 +39,12 @@ class Quote extends Component
                 'X-Api-Key' => $key,
             ])->get($endpoint);
 
-            if($response->successful()) {
+            if ($response->successful()) {
                 $quote = json_decode($response->body())[0];
             } else {
                 throw new \Exception('API request failed');
             }
-        } Catch (\Exception $e) {
+        } catch (\Exception $e) {
             $quote = (object) [
                 'quote' => 'Don\'t worry about the presentation tomorrow.',
                 'author' => 'Nico Deblauwe',

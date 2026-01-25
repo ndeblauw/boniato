@@ -21,8 +21,7 @@ class MollieWebhookController extends Controller
 
         $payment = Mollie::send(new GetPaymentRequest($mollie_payment_id));
 
-        if ($payment->isPaid())
-        {
+        if ($payment->isPaid()) {
             $my_payment->update(['status' => 'paid']);
         }
 

@@ -3,7 +3,7 @@
 use Spatie\LaravelFlare\FlareConfig;
 
 return [
-        /*
+    /*
         |
         |--------------------------------------------------------------------------
         | Flare API key
@@ -15,9 +15,9 @@ return [
         |
         */
 
-        'key' => env('FLARE_KEY'),
+    'key' => env('FLARE_KEY'),
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Collects
         |--------------------------------------------------------------------------
@@ -27,12 +27,12 @@ return [
         |
         */
 
-        'collects' => FlareConfig::defaultCollects(
-            ignore: [],
-            extra: []
-        ),
+    'collects' => FlareConfig::defaultCollects(
+        ignore: [],
+        extra: []
+    ),
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Censor data
         |--------------------------------------------------------------------------
@@ -43,25 +43,25 @@ return [
         |
         */
 
-        'censor' => [
-          'body_fields' => [
-              'password',
-              'password_confirmation',
-          ],
-          'headers' => [
-              'API-KEY',
-              'Authorization',
-              'Cookie',
-              'Set-Cookie',
-              'X-CSRF-TOKEN',
-              'X-XSRF-TOKEN',
-          ],
-          'client_ips' => false,
-          'cookies' => false,
-          'session' => false,
+    'censor' => [
+        'body_fields' => [
+            'password',
+            'password_confirmation',
         ],
+        'headers' => [
+            'API-KEY',
+            'Authorization',
+            'Cookie',
+            'Set-Cookie',
+            'X-CSRF-TOKEN',
+            'X-XSRF-TOKEN',
+        ],
+        'client_ips' => false,
+        'cookies' => false,
+        'session' => false,
+    ],
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Reporting log statements
         |--------------------------------------------------------------------------
@@ -71,9 +71,9 @@ return [
         |
         */
 
-        'send_logs_as_events' => true,
+    'send_logs_as_events' => true,
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Report error levels
         |--------------------------------------------------------------------------
@@ -82,9 +82,9 @@ return [
         | this value to `null`.
         */
 
-        'report_error_levels' => null,
+    'report_error_levels' => null,
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Share button
         |--------------------------------------------------------------------------
@@ -95,9 +95,9 @@ return [
         |
         */
 
-        'enable_share_button' => true,
+    'enable_share_button' => true,
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Override grouping
         |--------------------------------------------------------------------------
@@ -110,11 +110,11 @@ return [
         |
         */
 
-        'overridden_groupings' => [
+    'overridden_groupings' => [
         //        Illuminate\Http\Client\ConnectionException::class => Spatie\FlareClient\Enums\OverriddenGrouping::ExceptionMessageAndClass,
-        ],
+    ],
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Trace
         |--------------------------------------------------------------------------
@@ -124,9 +124,9 @@ return [
         |
         */
 
-        'trace' => true,
+    'trace' => true,
 
-        /*
+    /*
         |--------------------------------------------------------------------------
         | Sampler
         |--------------------------------------------------------------------------
@@ -137,10 +137,10 @@ return [
         | which means that 10% of the traces will be recorded.
         |
         */
-        'sampler' => [
-            'class' => \Spatie\FlareClient\Sampling\RateSampler::class,
-            'config' => [
-                'rate' => env('FLARE_SAMPLER_RATE', 0.1),
-            ],
+    'sampler' => [
+        'class' => \Spatie\FlareClient\Sampling\RateSampler::class,
+        'config' => [
+            'rate' => env('FLARE_SAMPLER_RATE', 0.1),
         ],
+    ],
 ];

@@ -18,8 +18,7 @@ class InformAdminsOfNewPublicationJob implements ShouldQueue
     public function __construct(
         public Article $article,
         public User $publisher,
-    )
-    {
+    ) {
         //
     }
 
@@ -30,9 +29,8 @@ class InformAdminsOfNewPublicationJob implements ShouldQueue
     {
         sleep(10);
 
-
         $admins = User::where('is_admin', true)->get();
-        foreach($admins as $admin) {
+        foreach ($admins as $admin) {
             $admin->notify(new ArticlePublishedNotification($this->article, $this->publisher));
         }
     }

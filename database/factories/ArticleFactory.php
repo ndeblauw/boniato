@@ -20,7 +20,7 @@ class ArticleFactory extends Factory
         return [
             'title' => fake()->realTextBetween(20, 50),
             'content' => fake()->paragraph(5),
-            'author_id' => fake()->numberBetween(1,5),
+            'author_id' => fake()->numberBetween(1, 5),
             'deleted_at' => fake()->boolean(80) ? null : fake()->datetime(),
             'is_published' => fake()->boolean(80),
         ];

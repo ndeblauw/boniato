@@ -15,6 +15,7 @@ class Article extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
+
     use InteractsWithMedia;
     use SoftDeletes;
 
@@ -31,7 +32,7 @@ class Article extends Model implements HasMedia
     {
         static::saving(function (Article $article) {
             // Generate slug if not provided
-            if($article->slug === null || $article->slug === '') {
+            if ($article->slug === null || $article->slug === '') {
                 $article->slug = Str::slug($article->title);
             }
         });
@@ -56,15 +57,15 @@ class Article extends Model implements HasMedia
     // Model methods ------------------
     public function canBeManagedBy(?User $user)
     {
-        if(!$user) {
+        if (! $user) {
             return false;
         }
 
-        if($user->id === $this->author_id) {
+        if ($user->id === $this->author_id) {
             return true;
         }
 
-        if($user->is_admin) {
+        if ($user->is_admin) {
             return true;
         }
 
@@ -73,7 +74,7 @@ class Article extends Model implements HasMedia
 
     public function getImageUrl(string $conversion = 'preview'): string
     {
-        if($this->media->first()) {
+        if ($this->media->first()) {
             return $this->media->first()->getUrl($conversion);
         } else {
             return asset('img/article-placeholders/placeholder-'.$conversion.'.jpg');
@@ -92,5 +93,4 @@ class Article extends Model implements HasMedia
             ->fit(Fit::Crop, 640, 400)
             ->nonQueued();
     }
-
 }

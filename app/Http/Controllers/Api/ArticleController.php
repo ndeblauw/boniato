@@ -31,7 +31,7 @@ class ArticleController extends Controller
             ->where('is_published', true)
             ->find($id);
 
-        if (!$article) {
+        if (! $article) {
             return response()->json(['message' => 'Article not found'], 404);
         }
 

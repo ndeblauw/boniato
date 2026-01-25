@@ -14,7 +14,7 @@ class AdminSubscriptionExportController extends Controller
     {
         $subscriptions = Subscription::all();
 
-        $emails = $subscriptions->map(fn($s) => $s->email_for_export());
+        $emails = $subscriptions->map(fn ($s) => $s->email_for_export());
 
         return $emails;
     }

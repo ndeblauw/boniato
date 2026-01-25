@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Http;
 class IpInfoService implements IpServiceInterface
 {
     public string $endpoint;
+
     public string $token;
+
     public function __construct()
     {
         $this->endpoint = config('services.ipinfo.endpoint');
@@ -16,7 +18,7 @@ class IpInfoService implements IpServiceInterface
 
     public function getCountry(?string $ip_address): string
     {
-        if($ip_address === null) {
+        if ($ip_address === null) {
             return 'Belgium';
         }
 
@@ -29,15 +31,14 @@ class IpInfoService implements IpServiceInterface
     {
         try {
             $response = Http::get($this->endpoint.$ip_address, [
-                'token' => $this->token
+                'token' => $this->token,
             ]);
 
             return $response->json();
 
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return $response = ['country' => 'unknow'];
         }
 
     }
-
 }

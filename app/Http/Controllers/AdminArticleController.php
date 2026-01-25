@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class AdminArticleController extends Controller
 {
@@ -68,7 +67,7 @@ class AdminArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        if (!$article->canBeManagedBy(auth()->user())) {
+        if (! $article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 
@@ -80,7 +79,7 @@ class AdminArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        if (!$article->canBeManagedBy(auth()->user())) {
+        if (! $article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 
@@ -120,7 +119,7 @@ class AdminArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if (!$article->canBeManagedBy(auth()->user())) {
+        if (! $article->canBeManagedBy(auth()->user())) {
             abort(403);
         }
 

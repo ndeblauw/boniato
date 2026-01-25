@@ -18,7 +18,7 @@ class FormTextarea extends Component
         public string $placeholder = '',
         public string $value = '',
         public bool $rte = false,
-    ) { }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

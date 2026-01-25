@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    //use WithoutModelEvents;
+    // use WithoutModelEvents;
 
     /**
      * Seed the application's database.
@@ -42,10 +42,10 @@ class DatabaseSeeder extends Seeder
 
         // Associate articles with Categories
         $articles->each(function ($article) {
-            $nr_categories = random_int(0,3);
+            $nr_categories = random_int(0, 3);
             $category_list = [];
             for ($i = 0; $i < $nr_categories; $i++) {
-                $category_list[] = random_int(1,7);
+                $category_list[] = random_int(1, 7);
             }
             $article->categories()->attach($category_list);
         });

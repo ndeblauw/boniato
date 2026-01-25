@@ -18,7 +18,7 @@ class ArticleIndexResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'teaser' => Str::limit($this->content,20),
+            'teaser' => Str::limit($this->content, 20),
             'author' => new AuthorShowResource($this->whenLoaded('author')),
             'image_url' => $this->getImageUrl('preview'),
             'link' => route('api.articles.show', ['id' => $this->id]),

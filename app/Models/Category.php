@@ -11,7 +11,6 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-
     // Model relations ---------
     public function articles()
     {

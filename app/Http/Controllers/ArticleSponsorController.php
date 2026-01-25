@@ -27,18 +27,18 @@ class ArticleSponsorController extends Controller
         ]);
 
         $request = new CreatePaymentRequest(
-            description: 'Sponsoring article: ' . $article->title . ' by ' . $article->author->name,
-            amount: new Money('EUR', number_format($amount_cents/100, 2, '.', '')),
+            description: 'Sponsoring article: '.$article->title.' by '.$article->author->name,
+            amount: new Money('EUR', number_format($amount_cents / 100, 2, '.', '')),
             redirectUrl: route('articles.show', ['article' => $article->id, 'purchase' => $purchase->id]),
             webhookUrl: $webhook_url,
             metadata: [
-                "order_id" => "# $purchase->id",
-                "article_id" => $article->id,
-                "customer_info" => [
+                'order_id' => "# $purchase->id",
+                'article_id' => $article->id,
+                'customer_info' => [
                     'user_id' => $user->id,
-                    "name" => $user->name,
-                    "email" => $user->email,
-                ]
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ],
             ]
         );
 

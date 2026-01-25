@@ -16,11 +16,11 @@ class SubscriptionFactory extends Factory
      */
     public function definition(): array
     {
-        $user_link = random_int(0,1);
+        $user_link = random_int(0, 1);
 
         return [
-            'email' =>  $user_link ? fake()->unique()->safeEmail() : null,
-            'user_id' => $user_link ? null : fake()->numberBetween(1,10),
+            'email' => $user_link ? fake()->unique()->safeEmail() : null,
+            'user_id' => $user_link ? null : fake()->numberBetween(1, 10),
             'name' => $user_link ? fake()->unique()->name() : null,
         ];
     }

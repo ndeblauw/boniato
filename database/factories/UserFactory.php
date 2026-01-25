@@ -64,5 +64,4 @@ class UserFactory extends Factory
                 ->toMediaCollection();
         });
     }
-
 }

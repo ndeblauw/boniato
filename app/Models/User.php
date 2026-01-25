@@ -12,13 +12,12 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
     use HasFactory;
-    use Notifiable;
     use InteractsWithMedia;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -69,7 +68,7 @@ class User extends Authenticatable implements HasMedia
     // Model methods ---------------------------------------------------
     public function getImageUrl(string $conversion = 'preview'): string
     {
-        if($this->media->first()) {
+        if ($this->media->first()) {
             return $this->media->first()->getUrl($conversion);
         } else {
             return asset('img/user-placeholders/profile.avif');

@@ -25,7 +25,7 @@ class AuthorController extends Controller
             ->with('articles')
             ->find($id);
 
-        if (!$author) {
+        if (! $author) {
             return response()->json(['message' => 'Author not found'], 404);
         }
 

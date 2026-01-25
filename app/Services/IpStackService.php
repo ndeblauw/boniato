@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Http;
 class IpStackService implements IpServiceInterface
 {
     public string $endpoint;
+
     public string $key;
+
     public function __construct()
     {
         $this->endpoint = config('services.ipstack.endpoint');
@@ -16,7 +18,7 @@ class IpStackService implements IpServiceInterface
 
     public function getCountry(?string $ip_address): string
     {
-        if($ip_address === null) {
+        if ($ip_address === null) {
             return 'Belgium';
         }
 
@@ -29,15 +31,14 @@ class IpStackService implements IpServiceInterface
     {
         try {
             $response = Http::get($this->endpoint.$ip_address, [
-                'access_key' => $this->key
+                'access_key' => $this->key,
             ]);
 
             return $response->json();
 
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return $response = ['country_name' => 'unknow'];
         }
 
     }
-
 }

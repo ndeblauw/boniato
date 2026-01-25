@@ -7,8 +7,11 @@ use Illuminate\Support\Facades\Http;
 class WeatherService
 {
     public string $endpoint;
+
     public string $lang;
+
     public string $key;
+
     public string $city;
 
     public function __construct(public IpServiceInterface $ipService)
@@ -41,8 +44,9 @@ class WeatherService
                 'key' => $this->key,
             ]);
 
-            if($response->successful()) {
+            if ($response->successful()) {
                 $weather = json_decode($response->body());
+
                 return [
                     'city' => $this->city,
                     'temperature' => $weather->current->temp_c,
@@ -64,6 +68,4 @@ class WeatherService
         }
 
     }
-
-
 }
