@@ -55,9 +55,9 @@
                                                         <a class="text-gray-500 hover:text-gray-700" href="{{route('admin.articles.publish', $article)}}">Unpublish</a>
                                                     @endif
 
-                                                    <a href="/admin/articles/{{$article->id}}/edit" class="text-blue-600 hover:text-blue-800">Edit</a>
+                                                    <a href="{{ route('admin.articles.edit', $article) }}" class="text-blue-600 hover:text-blue-800">Edit</a>
 
-                                                    <form action="/admin/articles/{{$article->id}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
+                                                    <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="text-red-600 hover:text-red-800">Delete</button>

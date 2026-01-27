@@ -94,11 +94,12 @@ class AdminArticleController extends Controller
             'slug' => ['nullable', 'string', 'min:10', 'max:40'],
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
             'photo' => ['nullable', 'image', 'max:4096'],
-            'categories' => ['nullable'],
+            'categories' => ['nullable', 'array'],
+            'categories.*' => ['exists:categories,id'],
             'author_id' => ['nullable', 'integer', 'exists:users,id'],
         ]);
 
-        if ($request->has('categories')) {
+        if (isset($validated['categories'])) {
             $article->categories()->sync($validated['categories']);
             unset($validated['categories']);
         } else {
