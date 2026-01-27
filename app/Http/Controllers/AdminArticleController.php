@@ -40,11 +40,10 @@ class AdminArticleController extends Controller
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
         ]);
 
-        $article = Article::create($validated + ['author_id' => 1]);
+        $article = Article::create($validated + ['author_id' => auth()->id()]);
 
         if ($request->has('categories')) {
-            $article->categories()->sync($validated['categories']);
-            unset($validated['categories']);
+            $article->categories()->sync($request->input('categories'));
         } else {
             $article->categories()->sync([]);
         }
