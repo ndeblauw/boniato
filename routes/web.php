@@ -31,7 +31,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'is_admin'])->group(
     Route::get('get-subscriptions', \App\Http\Controllers\AdminSubscriptionExportController::class)->name('subscriptions.export');
 });
 
-Route::prefix('haha')->middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
