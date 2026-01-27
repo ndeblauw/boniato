@@ -1,5 +1,13 @@
 <x-site-layout title="Articles overview">
 
+    @auth
+    <div class="mb-4 flex justify-end">
+        <a href="{{ route('admin.articles.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+            Create New Article
+        </a>
+    </div>
+    @endauth
+
     <div class="flex flex-col gap-0">
 
         {{ $articles->links() }}
