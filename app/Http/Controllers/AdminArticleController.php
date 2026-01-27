@@ -38,12 +38,19 @@ class AdminArticleController extends Controller
             'title' => ['required', 'string', 'min:10', 'max:40'],
             'slug' => ['nullable', 'string', 'min:10', 'max:40'],
             'content' => ['nullable', 'string', 'min:10', 'max:500'],
+            'categories' => ['nullable', 'array'],
+            'categories.*' => ['exists:categories,id'],
         ]);
 
-        $article = Article::create($validated + ['author_id' => auth()->id()]);
+        $article = Article::create([
+            'title' => $validated['title'],
+            'slug' => $validated['slug'] ?? null,
+            'content' => $validated['content'] ?? null,
+            'author_id' => auth()->id(),
+        ]);
 
-        if ($request->has('categories')) {
-            $article->categories()->sync($request->input('categories'));
+        if (isset($validated['categories'])) {
+            $article->categories()->sync($validated['categories']);
         } else {
             $article->categories()->sync([]);
         }
